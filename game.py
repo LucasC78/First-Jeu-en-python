@@ -4,7 +4,6 @@ import pyscroll
 
 from player import Player
 
-
 class Game:
 
     def __init__(self):
@@ -21,6 +20,10 @@ class Game:
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
         map_layer.zoom = 2
+
+        # Charger de la musique
+        celtic_song = pygame.mixer.Sound("music1.ogg")
+        celtic_song.play().set_volume(0.1)
 
         # Générer le joeur
         player_position = tmx_data.get_object_by_name("player")
